@@ -38,7 +38,7 @@ public class StorageTest extends TestCase {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        
+
         doReturn(sharedPreferences).when(context).getSharedPreferences(anyString(), anyInt());
 
 
