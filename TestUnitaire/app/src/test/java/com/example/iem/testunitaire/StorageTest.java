@@ -18,6 +18,7 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isNull;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -25,6 +26,7 @@ import static org.mockito.Mockito.verify;
  */
 public class StorageTest extends TestCase {
     Storage storage;
+
     @Mock
     Context context;
     @Mock
@@ -36,7 +38,7 @@ public class StorageTest extends TestCase {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-
+        
         doReturn(sharedPreferences).when(context).getSharedPreferences(anyString(), anyInt());
 
 
@@ -44,7 +46,7 @@ public class StorageTest extends TestCase {
 
 
         doReturn(editor).when(editor).putString(anyString(), anyString());
-        storage=new Storage(null);
+        storage=new Storage(context);
 
     }
 
